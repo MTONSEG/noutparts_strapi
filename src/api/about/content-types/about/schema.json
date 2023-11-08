@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "abouts",
+  "info": {
+    "singularName": "about",
+    "pluralName": "abouts",
+    "displayName": "About",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "text"
+    },
+    "about": {
+      "displayName": "about",
+      "type": "component",
+      "repeatable": true,
+      "component": "list.about"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "benefit": {
+      "type": "component",
+      "repeatable": true,
+      "component": "list.about"
+    }
+  }
+}

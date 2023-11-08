@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "deliveries",
+  "info": {
+    "singularName": "delivery",
+    "pluralName": "deliveries",
+    "displayName": "Delivery",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "delivery": {
+      "displayName": "Delivery",
+      "type": "component",
+      "repeatable": false,
+      "component": "delivery.delivery"
+    },
+    "payment": {
+      "displayName": "Payment",
+      "type": "component",
+      "repeatable": false,
+      "component": "payment.payment"
+    }
+  }
+}

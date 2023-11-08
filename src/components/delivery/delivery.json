@@ -1,0 +1,56 @@
+{
+  "collectionName": "components_delivery_deliveries",
+  "info": {
+    "displayName": "Delivery",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "iconNova": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "iconUkr": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "textNova": {
+      "type": "richtext"
+    },
+    "textUkr": {
+      "type": "richtext"
+    },
+    "textBottom": {
+      "type": "text"
+    }
+  }
+}

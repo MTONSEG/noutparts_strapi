@@ -4,22 +4,37 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "Product"
+    "displayName": "Product",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "devices": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::device.device",
+      "mappedBy": "products"
+    },
     "name": {
       "type": "string"
     },
-    "image": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
+    "vendorCode": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
     }
   }
 }

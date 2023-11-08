@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_general_warranties",
+  "info": {
+    "displayName": "warranty",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "richtext"
+    }
+  }
+}

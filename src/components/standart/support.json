@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_standart_supports",
+  "info": {
+    "displayName": "support"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

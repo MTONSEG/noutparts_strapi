@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "not_founds",
+  "info": {
+    "singularName": "not-found",
+    "pluralName": "not-founds",
+    "displayName": "NotFound",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "titleBtn": {
+      "type": "string"
+    },
+    "links": {
+      "displayName": "link",
+      "type": "component",
+      "repeatable": true,
+      "component": "standart.link"
+    },
+    "text": {
+      "type": "text"
+    },
+    "support": {
+      "type": "string"
+    }
+  }
+}
