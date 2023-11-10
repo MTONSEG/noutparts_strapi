@@ -1,5 +1,29 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ContactsAddress extends Schema.Component {
+  collectionName: 'components_contacts_addresses';
+  info: {
+    displayName: 'address';
+  };
+  attributes: {};
+}
+
+export interface ContactsCommunication extends Schema.Component {
+  collectionName: 'components_contacts_communications';
+  info: {
+    displayName: 'Communication';
+  };
+  attributes: {};
+}
+
+export interface ContactsWorkTime extends Schema.Component {
+  collectionName: 'components_contacts_work_times';
+  info: {
+    displayName: 'WorkTime';
+  };
+  attributes: {};
+}
+
 export interface DeliveryDelivery extends Schema.Component {
   collectionName: 'components_delivery_deliveries';
   info: {
@@ -85,6 +109,9 @@ export interface StandartSupport extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'contacts.address': ContactsAddress;
+      'contacts.communication': ContactsCommunication;
+      'contacts.work-time': ContactsWorkTime;
       'delivery.delivery': DeliveryDelivery;
       'general.warranty': GeneralWarranty;
       'list.about': ListAbout;

@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contacts",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "contact"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "adrress": {
+      "displayName": "address",
+      "type": "component",
+      "repeatable": false,
+      "component": "contacts.address"
+    },
+    "tel": {
+      "type": "component",
+      "repeatable": false,
+      "component": "contacts.communication"
+    },
+    "email": {
+      "type": "component",
+      "repeatable": false,
+      "component": "contacts.communication"
+    },
+    "workTime": {
+      "displayName": "WorkTime",
+      "type": "component",
+      "repeatable": false,
+      "component": "contacts.work-time"
+    }
+  }
+}

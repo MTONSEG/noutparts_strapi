@@ -778,6 +778,39 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiContactContact extends Schema.CollectionType {
+  collectionName: 'contacts';
+  info: {
+    singularName: 'contact';
+    pluralName: 'contacts';
+    displayName: 'contact';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    adrress: Attribute.Component<'contacts.address'>;
+    tel: Attribute.Component<'contacts.communication'>;
+    email: Attribute.Component<'contacts.communication'>;
+    workTime: Attribute.Component<'contacts.work-time'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDeliveryDelivery extends Schema.CollectionType {
   collectionName: 'deliveries';
   info: {
@@ -1022,6 +1055,7 @@ declare module '@strapi/types' {
       'api::about.about': ApiAboutAbout;
       'api::brand.brand': ApiBrandBrand;
       'api::category.category': ApiCategoryCategory;
+      'api::contact.contact': ApiContactContact;
       'api::delivery.delivery': ApiDeliveryDelivery;
       'api::device.device': ApiDeviceDevice;
       'api::feedback.feedback': ApiFeedbackFeedback;
