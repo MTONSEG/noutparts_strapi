@@ -783,16 +783,19 @@ export interface ApiContactContact extends Schema.CollectionType {
   info: {
     singularName: 'contact';
     pluralName: 'contacts';
-    displayName: 'contact';
+    displayName: 'Contact';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    adrress: Attribute.Component<'contacts.address'>;
-    tel: Attribute.Component<'contacts.communication'>;
+    address: Attribute.Component<'contacts.address'>;
     email: Attribute.Component<'contacts.communication'>;
+    tel: Attribute.Component<'contacts.communication'>;
     workTime: Attribute.Component<'contacts.work-time'>;
+    title: Attribute.String;
+    text: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

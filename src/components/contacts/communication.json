@@ -1,8 +1,29 @@
 {
   "collectionName": "components_contacts_communications",
   "info": {
-    "displayName": "Communication"
+    "displayName": "Communication",
+    "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
 }

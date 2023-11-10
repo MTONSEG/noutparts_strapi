@@ -1,8 +1,26 @@
 {
   "collectionName": "components_contacts_addresses",
   "info": {
-    "displayName": "address"
+    "displayName": "address",
+    "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
 }

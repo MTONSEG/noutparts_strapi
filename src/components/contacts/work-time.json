@@ -1,8 +1,26 @@
 {
   "collectionName": "components_contacts_work_times",
   "info": {
-    "displayName": "WorkTime"
+    "displayName": "WorkTime",
+    "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "richtext"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
 }

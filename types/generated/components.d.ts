@@ -4,24 +4,40 @@ export interface ContactsAddress extends Schema.Component {
   collectionName: 'components_contacts_addresses';
   info: {
     displayName: 'address';
+    description: '';
   };
-  attributes: {};
+  attributes: {
+    title: Attribute.String;
+    text: Attribute.String;
+    icon: Attribute.Media;
+  };
 }
 
 export interface ContactsCommunication extends Schema.Component {
   collectionName: 'components_contacts_communications';
   info: {
     displayName: 'Communication';
+    description: '';
   };
-  attributes: {};
+  attributes: {
+    title: Attribute.String;
+    phone: Attribute.String;
+    path: Attribute.String;
+    icon: Attribute.Media;
+  };
 }
 
 export interface ContactsWorkTime extends Schema.Component {
   collectionName: 'components_contacts_work_times';
   info: {
     displayName: 'WorkTime';
+    description: '';
   };
-  attributes: {};
+  attributes: {
+    title: Attribute.String;
+    text: Attribute.RichText;
+    icon: Attribute.Media;
+  };
 }
 
 export interface DeliveryDelivery extends Schema.Component {
