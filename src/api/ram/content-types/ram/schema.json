@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rams",
+  "info": {
+    "singularName": "ram",
+    "pluralName": "rams",
+    "displayName": "Ram",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "battary": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::battary.battary",
+      "inversedBy": "rams"
+    }
+  }
+}

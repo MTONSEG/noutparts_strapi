@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "matrices",
+  "info": {
+    "singularName": "matrix",
+    "pluralName": "matrices",
+    "displayName": "Matrix",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "matrices"
+    }
+  }
+}

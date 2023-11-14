@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "keyboards",
+  "info": {
+    "singularName": "keyboard",
+    "pluralName": "keyboards",
+    "displayName": "Keyboard",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "keyboards"
+    }
+  }
+}

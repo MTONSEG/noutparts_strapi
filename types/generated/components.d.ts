@@ -1,5 +1,93 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface CatalogBattaries extends Schema.Component {
+  collectionName: 'components_catalog_battaries';
+  info: {
+    displayName: 'Battaries';
+  };
+  attributes: {
+    battaries: Attribute.Relation<
+      'catalog.battaries',
+      'oneToMany',
+      'api::battary.battary'
+    >;
+  };
+}
+
+export interface CatalogCategories extends Schema.Component {
+  collectionName: 'components_catalog_categories';
+  info: {
+    displayName: 'Categories';
+  };
+  attributes: {};
+}
+
+export interface CatalogKeyboards extends Schema.Component {
+  collectionName: 'components_catalog_keyboards';
+  info: {
+    displayName: 'Keyboards';
+  };
+  attributes: {
+    keyboards: Attribute.Relation<
+      'catalog.keyboards',
+      'oneToMany',
+      'api::keyboard.keyboard'
+    >;
+  };
+}
+
+export interface CatalogMatrices extends Schema.Component {
+  collectionName: 'components_catalog_matrices';
+  info: {
+    displayName: 'Matrices';
+  };
+  attributes: {
+    matrices: Attribute.Relation<
+      'catalog.matrices',
+      'oneToMany',
+      'api::matrix.matrix'
+    >;
+  };
+}
+
+export interface CatalogPowers extends Schema.Component {
+  collectionName: 'components_catalog_powers';
+  info: {
+    displayName: 'Powers';
+  };
+  attributes: {
+    battaries: Attribute.Relation<
+      'catalog.powers',
+      'oneToMany',
+      'api::battary.battary'
+    >;
+  };
+}
+
+export interface CatalogRam extends Schema.Component {
+  collectionName: 'components_catalog_rams';
+  info: {
+    displayName: 'RAM';
+  };
+  attributes: {
+    rams: Attribute.Relation<'catalog.ram', 'oneToMany', 'api::ram.ram'>;
+  };
+}
+
+export interface CatalogStorages extends Schema.Component {
+  collectionName: 'components_catalog_storages';
+  info: {
+    displayName: 'Storages';
+  };
+  attributes: {
+    battaries: Attribute.Relation<
+      'catalog.storages',
+      'oneToMany',
+      'api::battary.battary'
+    >;
+  };
+}
+
 export interface ContactsAddress extends Schema.Component {
   collectionName: 'components_contacts_addresses';
   info: {
@@ -70,6 +158,24 @@ export interface GeneralWarranty extends Schema.Component {
   };
 }
 
+export interface HomeBanner extends Schema.Component {
+  collectionName: 'components_home_banners';
+  info: {
+    displayName: 'Banner';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    text: Attribute.RichText;
+    titleBtn: Attribute.String;
+    subtitle: Attribute.Text;
+    iconSubtitle: Attribute.Media;
+    image: Attribute.Media;
+    imageTable: Attribute.Media;
+    counter: Attribute.RichText;
+  };
+}
+
 export interface ListAbout extends Schema.Component {
   collectionName: 'components_list_abouts';
   info: {
@@ -125,11 +231,19 @@ export interface StandartSupport extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'catalog.battaries': CatalogBattaries;
+      'catalog.categories': CatalogCategories;
+      'catalog.keyboards': CatalogKeyboards;
+      'catalog.matrices': CatalogMatrices;
+      'catalog.powers': CatalogPowers;
+      'catalog.ram': CatalogRam;
+      'catalog.storages': CatalogStorages;
       'contacts.address': ContactsAddress;
       'contacts.communication': ContactsCommunication;
       'contacts.work-time': ContactsWorkTime;
       'delivery.delivery': DeliveryDelivery;
       'general.warranty': GeneralWarranty;
+      'home.banner': HomeBanner;
       'list.about': ListAbout;
       'payment.payment': PaymentPayment;
       'standart.link': StandartLink;

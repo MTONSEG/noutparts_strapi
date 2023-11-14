@@ -15,10 +15,42 @@
     "title": {
       "type": "string"
     },
-    "products": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "color": {
+      "type": "string"
+    },
+    "titleBtn": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "keyboards": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::product.product",
+      "target": "api::keyboard.keyboard",
+      "mappedBy": "category"
+    },
+    "battaries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::battary.battary",
+      "mappedBy": "category"
+    },
+    "matrices": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::matrix.matrix",
       "mappedBy": "category"
     }
   }

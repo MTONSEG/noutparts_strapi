@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "powers",
+  "info": {
+    "singularName": "power",
+    "pluralName": "powers",
+    "displayName": "Power",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "battary": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::battary.battary",
+      "inversedBy": "powers"
+    }
+  }
+}

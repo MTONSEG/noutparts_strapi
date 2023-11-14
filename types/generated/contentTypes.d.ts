@@ -677,7 +677,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiAboutAbout extends Schema.CollectionType {
+export interface ApiAboutAbout extends Schema.SingleType {
   collectionName: 'abouts';
   info: {
     singularName: 'about';
@@ -705,6 +705,57 @@ export interface ApiAboutAbout extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::about.about',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBattaryBattary extends Schema.CollectionType {
+  collectionName: 'battaries';
+  info: {
+    singularName: 'battary';
+    pluralName: 'battaries';
+    displayName: 'Battary';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    category: Attribute.Relation<
+      'api::battary.battary',
+      'manyToOne',
+      'api::category.category'
+    >;
+    powers: Attribute.Relation<
+      'api::battary.battary',
+      'oneToMany',
+      'api::power.power'
+    >;
+    rams: Attribute.Relation<
+      'api::battary.battary',
+      'oneToMany',
+      'api::ram.ram'
+    >;
+    storages: Attribute.Relation<
+      'api::battary.battary',
+      'oneToMany',
+      'api::storage.storage'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::battary.battary',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::battary.battary',
       'oneToOne',
       'admin::user'
     > &
@@ -755,10 +806,24 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    products: Attribute.Relation<
+    image: Attribute.Media;
+    color: Attribute.String;
+    titleBtn: Attribute.String;
+    type: Attribute.String;
+    keyboards: Attribute.Relation<
       'api::category.category',
       'oneToMany',
-      'api::product.product'
+      'api::keyboard.keyboard'
+    >;
+    battaries: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::battary.battary'
+    >;
+    matrices: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::matrix.matrix'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -778,7 +843,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
-export interface ApiContactContact extends Schema.CollectionType {
+export interface ApiContactContact extends Schema.SingleType {
   collectionName: 'contacts';
   info: {
     singularName: 'contact';
@@ -814,7 +879,7 @@ export interface ApiContactContact extends Schema.CollectionType {
   };
 }
 
-export interface ApiDeliveryDelivery extends Schema.CollectionType {
+export interface ApiDeliveryDelivery extends Schema.SingleType {
   collectionName: 'deliveries';
   info: {
     singularName: 'delivery';
@@ -862,11 +927,6 @@ export interface ApiDeviceDevice extends Schema.CollectionType {
     brand: Attribute.String;
     part: Attribute.String;
     model: Attribute.String;
-    products: Attribute.Relation<
-      'api::device.device',
-      'manyToMany',
-      'api::product.product'
-    >;
     brands: Attribute.Relation<
       'api::device.device',
       'oneToMany',
@@ -924,7 +984,102 @@ export interface ApiFeedbackFeedback extends Schema.CollectionType {
   };
 }
 
-export interface ApiNotFoundNotFound extends Schema.CollectionType {
+export interface ApiHomeHome extends Schema.SingleType {
+  collectionName: 'homes';
+  info: {
+    singularName: 'home';
+    pluralName: 'homes';
+    displayName: 'Home';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Attribute.Component<'home.banner'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiKeyboardKeyboard extends Schema.CollectionType {
+  collectionName: 'keyboards';
+  info: {
+    singularName: 'keyboard';
+    pluralName: 'keyboards';
+    displayName: 'Keyboard';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    category: Attribute.Relation<
+      'api::keyboard.keyboard',
+      'manyToOne',
+      'api::category.category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::keyboard.keyboard',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::keyboard.keyboard',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMatrixMatrix extends Schema.CollectionType {
+  collectionName: 'matrices';
+  info: {
+    singularName: 'matrix';
+    pluralName: 'matrices';
+    displayName: 'Matrix';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    category: Attribute.Relation<
+      'api::matrix.matrix',
+      'manyToOne',
+      'api::category.category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::matrix.matrix',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::matrix.matrix',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiNotFoundNotFound extends Schema.SingleType {
   collectionName: 'not_founds';
   info: {
     singularName: 'not-found';
@@ -960,43 +1115,35 @@ export interface ApiNotFoundNotFound extends Schema.CollectionType {
   };
 }
 
-export interface ApiProductProduct extends Schema.CollectionType {
-  collectionName: 'products';
+export interface ApiPowerPower extends Schema.CollectionType {
+  collectionName: 'powers';
   info: {
-    singularName: 'product';
-    pluralName: 'products';
-    displayName: 'Product';
+    singularName: 'power';
+    pluralName: 'powers';
+    displayName: 'Power';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    category: Attribute.Relation<
-      'api::product.product',
+    title: Attribute.String;
+    battary: Attribute.Relation<
+      'api::power.power',
       'manyToOne',
-      'api::category.category'
+      'api::battary.battary'
     >;
-    devices: Attribute.Relation<
-      'api::product.product',
-      'manyToMany',
-      'api::device.device'
-    >;
-    name: Attribute.String;
-    vendorCode: Attribute.String;
-    model: Attribute.String;
-    price: Attribute.Decimal;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::product.product',
+      'api::power.power',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::product.product',
+      'api::power.power',
       'oneToOne',
       'admin::user'
     > &
@@ -1004,7 +1151,71 @@ export interface ApiProductProduct extends Schema.CollectionType {
   };
 }
 
-export interface ApiWarrantyWarranty extends Schema.CollectionType {
+export interface ApiRamRam extends Schema.CollectionType {
+  collectionName: 'rams';
+  info: {
+    singularName: 'ram';
+    pluralName: 'rams';
+    displayName: 'Ram';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    battary: Attribute.Relation<
+      'api::ram.ram',
+      'manyToOne',
+      'api::battary.battary'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::ram.ram', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::ram.ram', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiStorageStorage extends Schema.CollectionType {
+  collectionName: 'storages';
+  info: {
+    singularName: 'storage';
+    pluralName: 'storages';
+    displayName: 'Storage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    battary: Attribute.Relation<
+      'api::storage.storage',
+      'manyToOne',
+      'api::battary.battary'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::storage.storage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::storage.storage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiWarrantyWarranty extends Schema.SingleType {
   collectionName: 'warranties';
   info: {
     singularName: 'warranty';
@@ -1056,14 +1267,20 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about.about': ApiAboutAbout;
+      'api::battary.battary': ApiBattaryBattary;
       'api::brand.brand': ApiBrandBrand;
       'api::category.category': ApiCategoryCategory;
       'api::contact.contact': ApiContactContact;
       'api::delivery.delivery': ApiDeliveryDelivery;
       'api::device.device': ApiDeviceDevice;
       'api::feedback.feedback': ApiFeedbackFeedback;
+      'api::home.home': ApiHomeHome;
+      'api::keyboard.keyboard': ApiKeyboardKeyboard;
+      'api::matrix.matrix': ApiMatrixMatrix;
       'api::not-found.not-found': ApiNotFoundNotFound;
-      'api::product.product': ApiProductProduct;
+      'api::power.power': ApiPowerPower;
+      'api::ram.ram': ApiRamRam;
+      'api::storage.storage': ApiStorageStorage;
       'api::warranty.warranty': ApiWarrantyWarranty;
     }
   }

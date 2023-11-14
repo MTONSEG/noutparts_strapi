@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_catalog_storages",
+  "info": {
+    "displayName": "Storages"
+  },
+  "options": {},
+  "attributes": {
+    "battaries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::battary.battary"
+    }
+  }
+}

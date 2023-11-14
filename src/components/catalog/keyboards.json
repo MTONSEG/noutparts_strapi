@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_catalog_keyboards",
+  "info": {
+    "displayName": "Keyboards"
+  },
+  "options": {},
+  "attributes": {
+    "keyboards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::keyboard.keyboard"
+    }
+  }
+}

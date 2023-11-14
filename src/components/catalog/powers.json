@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_catalog_powers",
+  "info": {
+    "displayName": "Powers"
+  },
+  "options": {},
+  "attributes": {
+    "battaries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::battary.battary"
+    }
+  }
+}
