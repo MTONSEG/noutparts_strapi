@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * battary service
+ * battery service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::battary.battary');
+module.exports = createCoreService('api::battery.battery');

@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * battary controller
+ * battery controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::battary.battary');
+module.exports = createCoreController('api::battery.battery');

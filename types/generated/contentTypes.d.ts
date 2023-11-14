@@ -712,12 +712,12 @@ export interface ApiAboutAbout extends Schema.SingleType {
   };
 }
 
-export interface ApiBattaryBattary extends Schema.CollectionType {
-  collectionName: 'battaries';
+export interface ApiBatteryBattery extends Schema.CollectionType {
+  collectionName: 'batteries';
   info: {
-    singularName: 'battary';
-    pluralName: 'battaries';
-    displayName: 'Battary';
+    singularName: 'battery';
+    pluralName: 'batteries';
+    displayName: 'Battery';
     description: '';
   };
   options: {
@@ -726,36 +726,21 @@ export interface ApiBattaryBattary extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     category: Attribute.Relation<
-      'api::battary.battary',
+      'api::battery.battery',
       'manyToOne',
       'api::category.category'
-    >;
-    powers: Attribute.Relation<
-      'api::battary.battary',
-      'oneToMany',
-      'api::power.power'
-    >;
-    rams: Attribute.Relation<
-      'api::battary.battary',
-      'oneToMany',
-      'api::ram.ram'
-    >;
-    storages: Attribute.Relation<
-      'api::battary.battary',
-      'oneToMany',
-      'api::storage.storage'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::battary.battary',
+      'api::battery.battery',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::battary.battary',
+      'api::battery.battery',
       'oneToOne',
       'admin::user'
     > &
@@ -769,12 +754,14 @@ export interface ApiBrandBrand extends Schema.CollectionType {
     singularName: 'brand';
     pluralName: 'brands';
     displayName: 'Brand';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     name: Attribute.String;
+    icon: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -815,15 +802,32 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'oneToMany',
       'api::keyboard.keyboard'
     >;
-    battaries: Attribute.Relation<
-      'api::category.category',
-      'oneToMany',
-      'api::battary.battary'
-    >;
     matrices: Attribute.Relation<
       'api::category.category',
       'oneToMany',
       'api::matrix.matrix'
+    >;
+    subtitle: Attribute.String;
+    path: Attribute.String;
+    batteries: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::battery.battery'
+    >;
+    powers: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::power.power'
+    >;
+    rams: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::ram.ram'
+    >;
+    storages: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::storage.storage'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1128,10 +1132,10 @@ export interface ApiPowerPower extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    battary: Attribute.Relation<
+    category: Attribute.Relation<
       'api::power.power',
       'manyToOne',
-      'api::battary.battary'
+      'api::category.category'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1164,10 +1168,10 @@ export interface ApiRamRam extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    battary: Attribute.Relation<
+    category: Attribute.Relation<
       'api::ram.ram',
       'manyToOne',
-      'api::battary.battary'
+      'api::category.category'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1192,10 +1196,10 @@ export interface ApiStorageStorage extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    battary: Attribute.Relation<
+    category: Attribute.Relation<
       'api::storage.storage',
       'manyToOne',
-      'api::battary.battary'
+      'api::category.category'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1267,7 +1271,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about.about': ApiAboutAbout;
-      'api::battary.battary': ApiBattaryBattary;
+      'api::battery.battery': ApiBatteryBattery;
       'api::brand.brand': ApiBrandBrand;
       'api::category.category': ApiCategoryCategory;
       'api::contact.contact': ApiContactContact;

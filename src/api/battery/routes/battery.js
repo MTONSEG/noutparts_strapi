@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * battary router
+ * battery router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::battary.battary');
+module.exports = createCoreRouter('api::battery.battery');

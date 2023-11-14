@@ -5,13 +5,7 @@ export interface CatalogBattaries extends Schema.Component {
   info: {
     displayName: 'Battaries';
   };
-  attributes: {
-    battaries: Attribute.Relation<
-      'catalog.battaries',
-      'oneToMany',
-      'api::battary.battary'
-    >;
-  };
+  attributes: {};
 }
 
 export interface CatalogCategories extends Schema.Component {
@@ -55,13 +49,7 @@ export interface CatalogPowers extends Schema.Component {
   info: {
     displayName: 'Powers';
   };
-  attributes: {
-    battaries: Attribute.Relation<
-      'catalog.powers',
-      'oneToMany',
-      'api::battary.battary'
-    >;
-  };
+  attributes: {};
 }
 
 export interface CatalogRam extends Schema.Component {
@@ -79,13 +67,7 @@ export interface CatalogStorages extends Schema.Component {
   info: {
     displayName: 'Storages';
   };
-  attributes: {
-    battaries: Attribute.Relation<
-      'catalog.storages',
-      'oneToMany',
-      'api::battary.battary'
-    >;
-  };
+  attributes: {};
 }
 
 export interface ContactsAddress extends Schema.Component {

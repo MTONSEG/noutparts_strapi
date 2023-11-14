@@ -15,10 +15,10 @@
     "title": {
       "type": "string"
     },
-    "battary": {
+    "category": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::battary.battary",
+      "target": "api::category.category",
       "inversedBy": "rams"
     }
   }

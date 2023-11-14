@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "storages",
+  "collectionName": "batteries",
   "info": {
-    "singularName": "storage",
-    "pluralName": "storages",
-    "displayName": "Storage",
+    "singularName": "battery",
+    "pluralName": "batteries",
+    "displayName": "Battery",
     "description": ""
   },
   "options": {
@@ -19,7 +19,7 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::category.category",
-      "inversedBy": "storages"
+      "inversedBy": "batteries"
     }
   }
 }

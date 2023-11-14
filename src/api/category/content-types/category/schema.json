@@ -41,16 +41,40 @@
       "target": "api::keyboard.keyboard",
       "mappedBy": "category"
     },
-    "battaries": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::battary.battary",
-      "mappedBy": "category"
-    },
     "matrices": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::matrix.matrix",
+      "mappedBy": "category"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    },
+    "batteries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::battery.battery",
+      "mappedBy": "category"
+    },
+    "powers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::power.power",
+      "mappedBy": "category"
+    },
+    "rams": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ram.ram",
+      "mappedBy": "category"
+    },
+    "storages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::storage.storage",
       "mappedBy": "category"
     }
   }
