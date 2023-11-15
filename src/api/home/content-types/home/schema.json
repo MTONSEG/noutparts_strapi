@@ -16,6 +16,21 @@
       "type": "component",
       "repeatable": false,
       "component": "home.banner"
+    },
+    "benefits": {
+      "type": "component",
+      "repeatable": true,
+      "component": "list.about"
+    },
+    "brands": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::brand.brand"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
     }
   }
 }

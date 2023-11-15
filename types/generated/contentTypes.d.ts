@@ -1001,6 +1001,17 @@ export interface ApiHomeHome extends Schema.SingleType {
   };
   attributes: {
     banner: Attribute.Component<'home.banner'>;
+    benefits: Attribute.Component<'list.about', true>;
+    brands: Attribute.Relation<
+      'api::home.home',
+      'oneToMany',
+      'api::brand.brand'
+    >;
+    categories: Attribute.Relation<
+      'api::home.home',
+      'oneToMany',
+      'api::category.category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
