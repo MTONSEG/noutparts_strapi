@@ -1,7 +1,9 @@
 {
   "collectionName": "components_catalog_battaries",
   "info": {
-    "displayName": "Battaries"
+    "displayName": "Battaries",
+    "icon": "bold",
+    "description": ""
   },
   "options": {},
   "attributes": {}

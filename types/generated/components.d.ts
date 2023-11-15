@@ -4,6 +4,8 @@ export interface CatalogBattaries extends Schema.Component {
   collectionName: 'components_catalog_battaries';
   info: {
     displayName: 'Battaries';
+    icon: 'bold';
+    description: '';
   };
   attributes: {};
 }
@@ -91,7 +93,7 @@ export interface ContactsCommunication extends Schema.Component {
   };
   attributes: {
     title: Attribute.String;
-    phone: Attribute.String;
+    contact: Attribute.String;
     path: Attribute.String;
     icon: Attribute.Media;
   };

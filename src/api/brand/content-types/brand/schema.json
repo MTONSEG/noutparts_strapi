@@ -24,6 +24,12 @@
       ],
       "type": "media",
       "multiple": false
+    },
+    "battery": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::battery.battery",
+      "mappedBy": "brand"
     }
   }
 }

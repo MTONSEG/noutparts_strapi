@@ -730,6 +730,11 @@ export interface ApiBatteryBattery extends Schema.CollectionType {
       'manyToOne',
       'api::category.category'
     >;
+    brand: Attribute.Relation<
+      'api::battery.battery',
+      'oneToOne',
+      'api::brand.brand'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -762,6 +767,11 @@ export interface ApiBrandBrand extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     icon: Attribute.Media;
+    battery: Attribute.Relation<
+      'api::brand.brand',
+      'oneToOne',
+      'api::battery.battery'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -773,6 +783,47 @@ export interface ApiBrandBrand extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::brand.brand',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCatalogCatalog extends Schema.SingleType {
+  collectionName: 'catalogs';
+  info: {
+    singularName: 'catalog';
+    pluralName: 'catalogs';
+    displayName: 'Catalog';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    subtitle: Attribute.Text;
+    brands: Attribute.Relation<
+      'api::catalog.catalog',
+      'oneToMany',
+      'api::brand.brand'
+    >;
+    categories: Attribute.Relation<
+      'api::catalog.catalog',
+      'oneToMany',
+      'api::category.category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::catalog.catalog',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::catalog.catalog',
       'oneToOne',
       'admin::user'
     > &
@@ -828,6 +879,11 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'api::category.category',
       'oneToMany',
       'api::storage.storage'
+    >;
+    products: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::product.product'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -981,6 +1037,36 @@ export interface ApiFeedbackFeedback extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::feedback.feedback',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHeaderTopHeaderTop extends Schema.SingleType {
+  collectionName: 'header_tops';
+  info: {
+    singularName: 'header-top';
+    pluralName: 'header-tops';
+    displayName: 'Header Top';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    links: Attribute.Component<'standart.link', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::header-top.header-top',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::header-top.header-top',
       'oneToOne',
       'admin::user'
     > &
@@ -1166,6 +1252,52 @@ export interface ApiPowerPower extends Schema.CollectionType {
   };
 }
 
+export interface ApiProductProduct extends Schema.CollectionType {
+  collectionName: 'products';
+  info: {
+    singularName: 'product';
+    pluralName: 'products';
+    displayName: 'Product';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Attribute.Relation<
+      'api::product.product',
+      'manyToOne',
+      'api::category.category'
+    >;
+    title: Attribute.String;
+    type: Attribute.DynamicZone<
+      [
+        'catalog.battaries',
+        'catalog.keyboards',
+        'catalog.matrices',
+        'catalog.powers',
+        'catalog.ram',
+        'catalog.storages'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRamRam extends Schema.CollectionType {
   collectionName: 'rams';
   info: {
@@ -1284,16 +1416,19 @@ declare module '@strapi/types' {
       'api::about.about': ApiAboutAbout;
       'api::battery.battery': ApiBatteryBattery;
       'api::brand.brand': ApiBrandBrand;
+      'api::catalog.catalog': ApiCatalogCatalog;
       'api::category.category': ApiCategoryCategory;
       'api::contact.contact': ApiContactContact;
       'api::delivery.delivery': ApiDeliveryDelivery;
       'api::device.device': ApiDeviceDevice;
       'api::feedback.feedback': ApiFeedbackFeedback;
+      'api::header-top.header-top': ApiHeaderTopHeaderTop;
       'api::home.home': ApiHomeHome;
       'api::keyboard.keyboard': ApiKeyboardKeyboard;
       'api::matrix.matrix': ApiMatrixMatrix;
       'api::not-found.not-found': ApiNotFoundNotFound;
       'api::power.power': ApiPowerPower;
+      'api::product.product': ApiProductProduct;
       'api::ram.ram': ApiRamRam;
       'api::storage.storage': ApiStorageStorage;
       'api::warranty.warranty': ApiWarrantyWarranty;

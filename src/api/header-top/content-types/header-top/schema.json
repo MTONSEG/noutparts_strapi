@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "header_tops",
+  "info": {
+    "singularName": "header-top",
+    "pluralName": "header-tops",
+    "displayName": "Header Top"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "standart.link"
+    }
+  }
+}
