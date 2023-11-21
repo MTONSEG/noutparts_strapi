@@ -1,8 +1,22 @@
 {
   "collectionName": "components_catalog_storages",
   "info": {
-    "displayName": "Storages"
+    "displayName": "Storages",
+    "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "memory": {
+      "type": "integer"
+    },
+    "type": {
+      "type": "string"
+    },
+    "form": {
+      "type": "string"
+    },
+    "interface": {
+      "type": "string"
+    }
+  }
 }

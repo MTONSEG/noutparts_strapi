@@ -1,14 +1,19 @@
 {
   "collectionName": "components_catalog_rams",
   "info": {
-    "displayName": "RAM"
+    "displayName": "RAM",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "rams": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::ram.ram"
+    "memory": {
+      "type": "integer"
+    },
+    "speed": {
+      "type": "integer"
+    },
+    "type": {
+      "type": "string"
     }
   }
 }

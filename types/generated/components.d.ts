@@ -26,13 +26,11 @@ export interface CatalogKeyboards extends Schema.Component {
   collectionName: 'components_catalog_keyboards';
   info: {
     displayName: 'Keyboards';
+    description: '';
   };
   attributes: {
-    keyboards: Attribute.Relation<
-      'catalog.keyboards',
-      'oneToMany',
-      'api::keyboard.keyboard'
-    >;
+    lang: Attribute.String;
+    backlight: Attribute.Boolean & Attribute.DefaultTo<false>;
   };
 }
 
@@ -40,13 +38,12 @@ export interface CatalogMatrices extends Schema.Component {
   collectionName: 'components_catalog_matrices';
   info: {
     displayName: 'Matrices';
+    description: '';
   };
   attributes: {
-    matrices: Attribute.Relation<
-      'catalog.matrices',
-      'oneToMany',
-      'api::matrix.matrix'
-    >;
+    size: Attribute.Decimal;
+    resolution: Attribute.String;
+    type: Attribute.String;
   };
 }
 
@@ -54,17 +51,25 @@ export interface CatalogPowers extends Schema.Component {
   collectionName: 'components_catalog_powers';
   info: {
     displayName: 'Powers';
+    description: '';
   };
-  attributes: {};
+  attributes: {
+    power: Attribute.Integer;
+    voltage: Attribute.Decimal;
+    amperage: Attribute.Decimal;
+  };
 }
 
 export interface CatalogRam extends Schema.Component {
   collectionName: 'components_catalog_rams';
   info: {
     displayName: 'RAM';
+    description: '';
   };
   attributes: {
-    rams: Attribute.Relation<'catalog.ram', 'oneToMany', 'api::ram.ram'>;
+    memory: Attribute.Integer;
+    speed: Attribute.Integer;
+    type: Attribute.String;
   };
 }
 
@@ -72,8 +77,14 @@ export interface CatalogStorages extends Schema.Component {
   collectionName: 'components_catalog_storages';
   info: {
     displayName: 'Storages';
+    description: '';
   };
-  attributes: {};
+  attributes: {
+    memory: Attribute.Integer;
+    type: Attribute.String;
+    form: Attribute.String;
+    interface: Attribute.String;
+  };
 }
 
 export interface ContactsAddress extends Schema.Component {

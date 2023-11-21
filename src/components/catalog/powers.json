@@ -1,8 +1,19 @@
 {
   "collectionName": "components_catalog_powers",
   "info": {
-    "displayName": "Powers"
+    "displayName": "Powers",
+    "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "power": {
+      "type": "integer"
+    },
+    "voltage": {
+      "type": "decimal"
+    },
+    "amperage": {
+      "type": "decimal"
+    }
+  }
 }

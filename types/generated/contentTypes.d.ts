@@ -694,6 +694,8 @@ export interface ApiAboutAbout extends Schema.SingleType {
     about: Attribute.Component<'list.about', true>;
     subtitle: Attribute.String;
     benefit: Attribute.Component<'list.about', true>;
+    salePrice: Attribute.Decimal;
+    hitSale: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1281,12 +1283,14 @@ export interface ApiProductProduct extends Schema.CollectionType {
         'catalog.storages'
       ]
     >;
-    color: Attribute.String;
+    color: Attribute.String &
+      Attribute.DefaultTo<'\u0447\u0435\u0440\u043D\u044B\u0439'>;
     model: Attribute.String;
-    code: Attribute.Integer;
     price: Attribute.Decimal;
-    inStock: Attribute.Boolean;
+    inStock: Attribute.Boolean & Attribute.DefaultTo<false>;
     quantity: Attribute.Integer;
+    code: Attribute.UID;
+    images: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1329,6 +1333,37 @@ export interface ApiRamRam extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::ram.ram', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::ram.ram', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiResolutionResolution extends Schema.CollectionType {
+  collectionName: 'resolutions';
+  info: {
+    singularName: 'resolution';
+    pluralName: 'resolutions';
+    displayName: 'Resolution';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    value: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::resolution.resolution',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::resolution.resolution',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -1437,6 +1472,7 @@ declare module '@strapi/types' {
       'api::power.power': ApiPowerPower;
       'api::product.product': ApiProductProduct;
       'api::ram.ram': ApiRamRam;
+      'api::resolution.resolution': ApiResolutionResolution;
       'api::storage.storage': ApiStorageStorage;
       'api::warranty.warranty': ApiWarrantyWarranty;
     }

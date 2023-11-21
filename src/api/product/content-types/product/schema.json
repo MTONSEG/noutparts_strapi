@@ -33,22 +33,31 @@
       ]
     },
     "color": {
-      "type": "string"
+      "type": "string",
+      "default": "черный"
     },
     "model": {
       "type": "string"
-    },
-    "code": {
-      "type": "integer"
     },
     "price": {
       "type": "decimal"
     },
     "inStock": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "quantity": {
       "type": "integer"
+    },
+    "code": {
+      "type": "uid"
+    },
+    "images": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

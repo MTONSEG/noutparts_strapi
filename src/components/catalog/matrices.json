@@ -1,14 +1,19 @@
 {
   "collectionName": "components_catalog_matrices",
   "info": {
-    "displayName": "Matrices"
+    "displayName": "Matrices",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "matrices": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::matrix.matrix"
+    "size": {
+      "type": "decimal"
+    },
+    "resolution": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
     }
   }
 }

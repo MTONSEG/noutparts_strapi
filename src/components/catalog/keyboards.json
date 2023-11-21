@@ -1,14 +1,17 @@
 {
   "collectionName": "components_catalog_keyboards",
   "info": {
-    "displayName": "Keyboards"
+    "displayName": "Keyboards",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "keyboards": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::keyboard.keyboard"
+    "lang": {
+      "type": "string"
+    },
+    "backlight": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

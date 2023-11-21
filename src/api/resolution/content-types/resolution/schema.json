@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "resolutions",
+  "info": {
+    "singularName": "resolution",
+    "pluralName": "resolutions",
+    "displayName": "Resolution"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}
