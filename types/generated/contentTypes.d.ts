@@ -772,6 +772,7 @@ export interface ApiBrandBrand extends Schema.CollectionType {
       'oneToOne',
       'api::battery.battery'
     >;
+    device: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1270,7 +1271,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'api::category.category'
     >;
     title: Attribute.String;
-    type: Attribute.DynamicZone<
+    info: Attribute.DynamicZone<
       [
         'catalog.battaries',
         'catalog.keyboards',
@@ -1280,6 +1281,12 @@ export interface ApiProductProduct extends Schema.CollectionType {
         'catalog.storages'
       ]
     >;
+    color: Attribute.String;
+    model: Attribute.String;
+    code: Attribute.Integer;
+    price: Attribute.Decimal;
+    inStock: Attribute.Boolean;
+    quantity: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

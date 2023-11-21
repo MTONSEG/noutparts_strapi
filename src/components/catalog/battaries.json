@@ -6,5 +6,15 @@
     "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "capacity": {
+      "type": "integer"
+    },
+    "voltage": {
+      "type": "decimal"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
 }

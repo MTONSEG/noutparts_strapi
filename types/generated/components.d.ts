@@ -7,7 +7,11 @@ export interface CatalogBattaries extends Schema.Component {
     icon: 'bold';
     description: '';
   };
-  attributes: {};
+  attributes: {
+    capacity: Attribute.Integer;
+    voltage: Attribute.Decimal;
+    type: Attribute.String;
+  };
 }
 
 export interface CatalogCategories extends Schema.Component {

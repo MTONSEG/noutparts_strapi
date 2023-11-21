@@ -21,7 +21,7 @@
     "title": {
       "type": "string"
     },
-    "type": {
+    "info": {
       "type": "dynamiczone",
       "components": [
         "catalog.battaries",
@@ -31,6 +31,24 @@
         "catalog.ram",
         "catalog.storages"
       ]
+    },
+    "color": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "code": {
+      "type": "integer"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "inStock": {
+      "type": "boolean"
+    },
+    "quantity": {
+      "type": "integer"
     }
   }
 }

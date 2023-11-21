@@ -16,20 +16,24 @@
       "type": "string"
     },
     "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "battery": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::battery.battery",
       "mappedBy": "brand"
+    },
+    "device": {
+      "type": "boolean"
     }
   }
 }
