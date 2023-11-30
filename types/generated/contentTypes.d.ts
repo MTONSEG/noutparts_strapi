@@ -727,11 +727,6 @@ export interface ApiBatteryBattery extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    category: Attribute.Relation<
-      'api::battery.battery',
-      'manyToOne',
-      'api::category.category'
-    >;
     brand: Attribute.Relation<
       'api::battery.battery',
       'oneToOne',
@@ -775,6 +770,11 @@ export interface ApiBrandBrand extends Schema.CollectionType {
       'api::battery.battery'
     >;
     device: Attribute.Boolean;
+    devices: Attribute.Relation<
+      'api::brand.brand',
+      'oneToMany',
+      'api::device.device'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -851,38 +851,8 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     color: Attribute.String;
     titleBtn: Attribute.String;
     type: Attribute.String;
-    keyboards: Attribute.Relation<
-      'api::category.category',
-      'oneToMany',
-      'api::keyboard.keyboard'
-    >;
-    matrices: Attribute.Relation<
-      'api::category.category',
-      'oneToMany',
-      'api::matrix.matrix'
-    >;
     subtitle: Attribute.String;
     path: Attribute.String;
-    batteries: Attribute.Relation<
-      'api::category.category',
-      'oneToMany',
-      'api::battery.battery'
-    >;
-    powers: Attribute.Relation<
-      'api::category.category',
-      'oneToMany',
-      'api::power.power'
-    >;
-    rams: Attribute.Relation<
-      'api::category.category',
-      'oneToMany',
-      'api::ram.ram'
-    >;
-    storages: Attribute.Relation<
-      'api::category.category',
-      'oneToMany',
-      'api::storage.storage'
-    >;
     products: Attribute.Relation<
       'api::category.category',
       'oneToMany',
@@ -981,20 +951,23 @@ export interface ApiDeviceDevice extends Schema.CollectionType {
     singularName: 'device';
     pluralName: 'devices';
     displayName: 'Device';
-    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    brand: Attribute.String;
-    part: Attribute.String;
-    model: Attribute.String;
-    brands: Attribute.Relation<
+    brand: Attribute.Relation<
       'api::device.device',
-      'oneToMany',
+      'manyToOne',
       'api::brand.brand'
     >;
+    products: Attribute.Relation<
+      'api::device.device',
+      'oneToMany',
+      'api::product.product'
+    >;
+    model: Attribute.String;
+    series: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1124,11 +1097,6 @@ export interface ApiKeyboardKeyboard extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    category: Attribute.Relation<
-      'api::keyboard.keyboard',
-      'manyToOne',
-      'api::category.category'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1160,11 +1128,6 @@ export interface ApiMatrixMatrix extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    category: Attribute.Relation<
-      'api::matrix.matrix',
-      'manyToOne',
-      'api::category.category'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1232,11 +1195,6 @@ export interface ApiPowerPower extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    category: Attribute.Relation<
-      'api::power.power',
-      'manyToOne',
-      'api::category.category'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1291,6 +1249,11 @@ export interface ApiProductProduct extends Schema.CollectionType {
     quantity: Attribute.Integer;
     code: Attribute.UID;
     images: Attribute.Media;
+    device: Attribute.Relation<
+      'api::product.product',
+      'manyToOne',
+      'api::device.device'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1322,11 +1285,6 @@ export interface ApiRamRam extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    category: Attribute.Relation<
-      'api::ram.ram',
-      'manyToOne',
-      'api::category.category'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1381,11 +1339,6 @@ export interface ApiStorageStorage extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    category: Attribute.Relation<
-      'api::storage.storage',
-      'manyToOne',
-      'api::category.category'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

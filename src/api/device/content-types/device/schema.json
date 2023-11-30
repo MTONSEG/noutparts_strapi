@@ -4,8 +4,7 @@
   "info": {
     "singularName": "device",
     "pluralName": "devices",
-    "displayName": "Device",
-    "description": ""
+    "displayName": "Device"
   },
   "options": {
     "draftAndPublish": true
@@ -13,18 +12,22 @@
   "pluginOptions": {},
   "attributes": {
     "brand": {
-      "type": "string"
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand.brand",
+      "inversedBy": "devices"
     },
-    "part": {
-      "type": "string"
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "device"
     },
     "model": {
       "type": "string"
     },
-    "brands": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::brand.brand"
+    "series": {
+      "type": "string"
     }
   }
 }

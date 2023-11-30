@@ -58,6 +58,12 @@
       ],
       "type": "media",
       "multiple": true
+    },
+    "device": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::device.device",
+      "inversedBy": "products"
     }
   }
 }
